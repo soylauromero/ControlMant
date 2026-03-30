@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ControlMant</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">ControlMant</a>
+
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="activos.html">Activos</a>
+                <a class="nav-link" href="mantenimientos.html">Mantenimientos</a>
+                <a class="nav-link" href="historial.html">Historial</a>
+                <a class="nav-link" href="alertas.html">Alertas</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Gestión de Activos</h1>
+    </header>
+
+    <main class="contenedor">
+
+        <h2 class="mx-auto p-3">Registrar Activo</h2>
+
+        <form id="formActivo" class="row g-3 card p-3">
+
+            <div class="col-md-6">
+                <label class="form-label">Tipo</label>
+                <select id="tipo" class="form-select">
+                    <option value="canal">Canal</option>
+                    <option value="maquinaria">Maquinaria</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Ubicación (canal)</label>
+                <input type="text" id="ubicacion" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Tipo Maquina</label>
+                <select id="tipoMaquina" class="form-select">
+                    <option value=""></option>
+                    <option value="MaquinariaAmarilla">Maquinaria Amarilla</option>
+                    <option value="MaquinariaAgricola">Maquinaria Agricola</option>
+                    <option value="Aperos">Aperos</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Estado</label>
+                <select id="estado" class="form-select">
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Observaciones</label>
+                <input type="text" id="observaciones" class="form-control">
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+        </form>
+
+        <h2>Lista de Activos</h2>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Ubicación / Tipo</th>
+                    <th>Estado</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody id="listaActivos"></tbody>
+        </table>
+
+    </main>
+
+    <script src="../js/models/Activo.js"></script>
+    <script src="../js/models/Canal.js"></script>
+    <script src="../js/models/Maquinaria.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/activos.js"></script>
+
+</body>
+
+</html>
