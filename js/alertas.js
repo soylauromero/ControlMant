@@ -15,14 +15,12 @@ function mostrarAlertas() {
 
         const activo = activos.find(a => a.id == m.activoId);
 
-        let fechaBase = new Date(m.fechaFin);
+        let fechaBase = new Date(m.fechaFin.replace(/-/g, '\/'));
+        console.log(hoy);
 
-        // 🔥 usar frecuencia
-        if (m.frecuencia) {
-            fechaBase.setDate(fechaBase.getDate() + m.frecuencia);
-        }
 
         fechaBase.setHours(0, 0, 0, 0);
+        console.log(fechaBase);
 
         const diferencia = (fechaBase - hoy) / (1000 * 60 * 60 * 24);
 
@@ -47,7 +45,7 @@ function mostrarAlertas() {
             <td>${activo ? activo.nombre : "N/A"}</td>
             <td>${m.descripcion}</td>
             <td>${estadoAlerta}</td>
-            <td>${fechaBase.toISOString().split("T")[0]}</td>
+            <td>${m.fechaFin}</td>
         `;
 
         lista.appendChild(fila);
